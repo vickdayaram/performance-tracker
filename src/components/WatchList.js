@@ -1,22 +1,35 @@
 import React, { Component } from 'react'
 import { Feed } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import { selectStock } from '../Actions/index'
+import { deleteFromWatchList } from '../Actions/index'
+import { bindActionCreators } from 'redux';
+import { Button } from 'semantic-ui-react'
 
 class WatchList extends Component {
 
   renderWatchlist = () => {
-    let watchlist = this.props.watchlist.map((stock) => <li> {stock.symbol} </li> )
+    let watchlist = this.props.watchlist.map((stock) => {
+    return (
+      <Feed.Content onClick={this.handleClick} >
+        <div>  {stock.symbol} <Button circular icon='line chart'/> </div>
+      </Feed.Content> ) })
     return watchlist
   }
 
-  render(){
+  handleClick = (event) => {
+    let symbol = event.target.innerText
+    this.props.selectStock(symbol)
+  }
 
-     console.log(this.props.watchlist)
+  render(){
      return (
       <div>
        <div> WatchList </div>
         {this.props.watchlist.length ?
-        this.renderWatchlist()
+        <Feed>
+          { this.renderWatchlist() }
+        </Feed>
         : null }
       </div>
     )
@@ -29,4 +42,9 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(WatchList)
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({selectStock: selectStock},
+                          dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(WatchList)

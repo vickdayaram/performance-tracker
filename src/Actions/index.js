@@ -11,3 +11,10 @@ export const addToWatchList = (selection) => {
       payload: selection
     }
 }
+
+export const deleteFromWatchList = (selection) => {
+    return {
+      type: 'DELETE_SELECTED',
+      payload: selection
+    }
+}

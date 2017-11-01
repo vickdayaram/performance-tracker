@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2'
+import { connect } from 'react-redux'
 
 const chartData = {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
@@ -26,4 +27,10 @@ class Chart extends Component {
 
 }
 
-export default Chart;
+function mapStateToProps(state) {
+    return {
+        selected: state.selected
+    };
+}
+
+export default connect(mapStateToProps)(Chart);;

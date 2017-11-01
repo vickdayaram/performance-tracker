@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 
 class StockSymbol extends Component {
@@ -6,10 +7,16 @@ class StockSymbol extends Component {
   render() {
     return (
       <div>
-          The Stock Symboll
+          { this.props.stock.selected }
       </div>
     )
   }
 }
 
-export default StockSymbol
+function mapStateToProps(state){
+  return {
+    stock: state.selected
+  }
+}
+
+export default connect(mapStateToProps)(StockSymbol)

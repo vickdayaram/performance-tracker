@@ -1,14 +1,32 @@
 import React, { Component } from 'react'
+import { Feed } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 class WatchList extends Component {
 
-  render() {
-    return (
+  renderWatchlist = () => {
+    let watchlist = this.props.watchlist.map((stock) => <li> {stock.symbol} </li> )
+    return watchlist
+  }
+
+  render(){
+
+     console.log(this.props.watchlist)
+     return (
       <div>
-          The Watch list
+       <div> WatchList </div>
+        {this.props.watchlist.length ?
+        this.renderWatchlist()
+        : null }
       </div>
     )
   }
 }
 
-export default WatchList
+function mapStateToProps(state){
+  return {
+    watchlist: state.watchlist
+  }
+}
+
+export default connect(mapStateToProps)(WatchList)

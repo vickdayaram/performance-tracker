@@ -3,6 +3,7 @@ import ChartContainer from './containers/ChartContainer'
 import DashboardContainer from './containers/DashboardContainer'
 import Nav from './components/Nav'
 import { Grid, Header, Segment } from 'semantic-ui-react'
+import HighCharts from './components/HighCharts'
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
         </Grid>
         </Segment>
         </div>
+        < HighCharts />
       </div>
     );
   }

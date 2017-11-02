@@ -1,8 +1,11 @@
-export default function (state = [], action){
+import formatCurrency from 'format-currency'
+const options = { format: '%s%v', symbol: '$' }
+
+export default function (state = {chartData: {data: [], labels: []}}, action){
     switch (action.type) {
         case 'SUCCESS':
             return Object.assign({}, state, {
-              chartData: structureData(action.data)
+              chartData: structureDataHighCharts(action.data)
             })
         default:
             return state;
@@ -23,4 +26,12 @@ const structureData = (json) => {
           }]
       }
   return chartData
+}
+
+
+const structureDataHighCharts = (json) => {
+  let rawData = json["Time Series (Daily)"]
+  let labels = Object.keys(rawData)
+  let data = Object.values(rawData).map((value) => parseFloat(value["1. open"]))
+  return {data: data.reverse(), labels: labels.reverse()}
 }

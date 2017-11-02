@@ -52,3 +52,9 @@ export const getChartData = (symbol) => {
     .catch(() => dispatch(getRequestHasErrors(true)))
   }
 }
+
+export const checkForRestart = () => {
+  return {
+    type: "CHECK_FOR_RESTART"
+  }
+}

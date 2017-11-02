@@ -4,6 +4,7 @@ import { StockData } from '../StockData'
 import { selectStock } from '../Actions/index'
 import { addToWatchList } from '../Actions/index'
 import { getChartData } from '../Actions/index'
+import { checkForRestart } from '../Actions/index'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash'
@@ -13,6 +14,7 @@ class UserInput extends Component {
   componentWillMount() {
     this.resetComponent()
     this.props.getChartData("BLK")
+    this.props.checkForRestart()
   }
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
@@ -27,7 +29,7 @@ class UserInput extends Component {
     this.props.selectStock(payload)
     this.props.addToWatchList(payload)
     this.props.getChartData(symbol)
-    this.setState({ value: result.title })
+    this.setState({ value: '' })
   }
 
   handleSearchChange = (e, { value }) => {
@@ -79,7 +81,8 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators({selectStock: selectStock,
                           addToWatchList: addToWatchList,
-                          getChartData: getChartData},
+                          getChartData: getChartData,
+                          checkForRestart: checkForRestart},
                           dispatch);
 }
 

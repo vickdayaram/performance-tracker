@@ -20,8 +20,12 @@ class UserInput extends Component {
   handleResultSelect = (e, { result }) => {
     let symbol = result.title
     let name = result.description
-    this.props.selectStock(symbol)
-    this.props.addToWatchList(symbol)
+    let payload = {
+      symbol: symbol,
+      name: name
+    }
+    this.props.selectStock(payload)
+    this.props.addToWatchList(payload)
     this.props.getChartData(symbol)
     this.setState({ value: result.title })
   }
@@ -54,7 +58,7 @@ class UserInput extends Component {
             results={results}
             value={value}
             fluid={true}
-            size="small"
+            size="massive"
             placeholder="Search by Company"
             {...this.props}
           />

@@ -4,12 +4,12 @@ import { Button } from 'semantic-ui-react'
 import { deleteFromWatchList } from '../Actions/index'
 import { bindActionCreators } from 'redux';
 
-class StockSymbol extends Component {
+class ChartHeader extends Component {
 
   render() {
     return (
       <div>
-          { this.props.stock.selected } 
+          { this.props.stock.name }
       </div>
     )
   }
@@ -21,4 +21,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(StockSymbol)
+export default connect(mapStateToProps)(ChartHeader)

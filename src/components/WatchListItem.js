@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Feed } from 'semantic-ui-react'
+import { Feed, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { selectStock } from '../Actions/index'
 import { deleteFromWatchList } from '../Actions/index'
@@ -11,31 +11,37 @@ class WatchListItem extends Component {
 
   handleSelect = () => {
     let symbol = this.props.stock.symbol
-    this.props.selectStock(symbol)
+    let name = this.props.stock.name
+    let payload = {
+      symbol: symbol,
+      name: name
+    }
+    this.props.selectStock(payload)
     this.props.getChartData(symbol)
   }
 
   handleDelete = () => {
     let symbol = this.props.stock.symbol
-    this.props.deleteFromWatchList(symbol)
+    let name = this.props.stock.name
+    let payload = {
+      symbol: symbol,
+      name: name
+    }
+    this.props.deleteFromWatchList(payload)
   }
 
   render(){
      return (
-      <div>
-         <Feed.Content onClick={this.handleClick} >
-           <div>
-                {this.props.stock.symbol}
-                <Button onClick={this.handleSelect} positive circular icon='line chart'/>
-                <Button onClick={this.handleDelete} negative circular icon='delete'/>
-           </div>
-         </Feed.Content>
-      </div>
+         <Table.Row>
+          <Table.Cell textAlign="center"> {this.props.stock.symbol} </Table.Cell>
+          <Table.Cell textAlign="center">
+            <Button onClick={this.handleSelect} positive circular icon='line chart'/>
+            <Button onClick={this.handleDelete} negative circular icon='delete'/>
+          </Table.Cell>
+         </Table.Row>
     )
   }
 }
-
-
 
 function mapStateToProps(state){
   return {

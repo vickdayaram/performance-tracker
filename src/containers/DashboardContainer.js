@@ -9,6 +9,8 @@ class DashboardContainer extends Component {
     return (
       <div>
         < UserInput />
+        < br/>
+        < br/>
         < WatchListContainer />
       </div>
     );

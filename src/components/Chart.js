@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2'
 import { connect } from 'react-redux'
 
-const chartData = {
+const chartDataTest = {
         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
             label: '# of Votes',
@@ -17,10 +17,10 @@ const chartData = {
 
 class Chart extends Component {
 
-  render() {
+ render() {
     return (
       <div>
-          < Line data={this.props.chartData.chartData} />
+            < Line data={this.props.chartData.chartData} />
       </div>
     );
   }

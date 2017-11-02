@@ -43,22 +43,15 @@ export const chartData = (data) => {
   }
 }
 
-// export const getChartData = (url) => {
-//   return (dispatch) => {
-//     dispatch(getRequestInProcess(true))
-//   }
-//
-//   fetch(url)
-//   .then((res) => {
-//     if(!res.ok) {
-//       throw Error(res.statusText)
-//     }
-//
-//     dispatch(getRequestInProcess(false))
-//
-//     return res
-//   })
-//   .then((res) => res.json())
-//   .then((data) => dispatch(chartData(data)))
-//   .then(() => dispatch(getRequestHasErrors(true)))
-// }
+export const getChartData = (symbol) => {
+   let url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=NKIEQH9ZHQ1ZFJVL
+     `
+     console.log("in getchartdata")
+  return function(dispatch){
+    dispatch(getRequestInProcess(true))
+     return fetch(url)
+    .then((res) => res.json())
+    .then((data) => dispatch(chartData(data)))
+    .catch(() => dispatch(getRequestHasErrors(true)))
+  }
+}

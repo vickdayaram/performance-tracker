@@ -3,6 +3,7 @@ import { Feed } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { selectStock } from '../Actions/index'
 import { deleteFromWatchList } from '../Actions/index'
+import { getChartData } from '../Actions/index'
 import { bindActionCreators } from 'redux';
 import { Button } from 'semantic-ui-react'
 
@@ -18,8 +19,9 @@ class WatchList extends Component {
   }
 
   handleClick = (event) => {
-    let symbol = event.target.innerText
+    let symbol = event.target.innerText.trim()
     this.props.selectStock(symbol)
+    this.props.getChartData(symbol)
   }
 
   render(){
@@ -43,7 +45,8 @@ function mapStateToProps(state){
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({selectStock: selectStock},
+    return bindActionCreators({selectStock: selectStock,
+                              getChartData: getChartData},
                           dispatch);
 }
 

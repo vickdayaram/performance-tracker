@@ -11,11 +11,15 @@ body {
 
 }
 
-.results{
+.results {
  max-height: 300px!important;
  overflow-y: auto!important;
 }
 
-.search{
+.search {
   text-align: center;
+}
+
+.watchListContainer {
+  margin-top: 35px;
 }

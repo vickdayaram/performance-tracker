@@ -2,7 +2,6 @@ export default function (state = [{symbol: "BLK", name: "BlackRock"}], action) {
     switch (action.type) {
         case 'ADD_SELECTED':
             if(existsInState(state, action.payload)){
-              localStorage.setItem('watchlist', JSON.stringify([...state]))
               return [...state]
               break;
             } else {
@@ -14,13 +13,13 @@ export default function (state = [{symbol: "BLK", name: "BlackRock"}], action) {
         case 'DELETE_SELECTED':
               let deleteUpdate = state.filter((stock) => stock.symbol !== action.payload.symbol )
               localStorage.setItem('watchlist', JSON.stringify(deleteUpdate))
-            return deleteUpdate
-            break;
+              return deleteUpdate
+              break;
         case 'CHECK_FOR_RESTART':
               if(localStorage.getItem('watchlist')){
                  let previous = localStorage.getItem('watchlist')
                  let updated = JSON.parse(previous)
-                 return state.concat(updated).slice(1)
+                 return updated
               } else {
                  return state
               }

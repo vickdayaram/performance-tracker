@@ -9,14 +9,14 @@ class ChartComponent extends Component {
  render() {
     return (
       <div>
-          < Line data={this.props.chartData.chartData} options={chartOptions} />
+          < Line data={this.props.chartData} options={chartOptions} />
       </div>
     );
   }
 
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
     return {
         chartData: state.chartData
     };

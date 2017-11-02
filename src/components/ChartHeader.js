@@ -15,7 +15,7 @@ class ChartHeader extends Component {
   }
 }
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     stock: state.selected
   }

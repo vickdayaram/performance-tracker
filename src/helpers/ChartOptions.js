@@ -1,6 +1,6 @@
 import formatCurrency from 'format-currency'
 
-export const options = { format: '%s%v', symbol: '$' }
+const options = { format: '%s%v', symbol: '$' }
 
 export const chartOptions = {
   maintainAspectRatio: true,

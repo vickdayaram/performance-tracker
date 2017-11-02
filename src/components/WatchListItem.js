@@ -43,13 +43,13 @@ class WatchListItem extends Component {
   }
 }
 
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     watchlist: state.watchlist
   }
 }
 
-function matchDispatchToProps(dispatch){
+const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({selectStock: selectStock,
                               getChartData: getChartData,
                               deleteFromWatchList: deleteFromWatchList},

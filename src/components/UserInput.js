@@ -67,16 +67,14 @@ class UserInput extends Component {
   }
 }
 
-
-
-function mapStateToProps(state){
+const mapStateToProps = (state) => {
   return {
     selected: state.selected,
     watchlist: state.watchlist
   }
 }
 
-function matchDispatchToProps(dispatch){
+const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({selectStock: selectStock,
                           addToWatchList: addToWatchList,
                           getChartData: getChartData,

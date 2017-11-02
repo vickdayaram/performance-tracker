@@ -1,17 +1,12 @@
-import formatCurrency from 'format-currency'
-const options = { format: '%s%v', symbol: '$' }
 
-export default function (state = {chartData: {data: [], labels: []}}, action){
+export default function (state = {}, action){
     switch (action.type) {
         case 'SUCCESS':
-            return Object.assign({}, state, {
-              chartData: structureDataHighCharts(action.data)
-            })
+            return Object.assign({}, state, structureData(action.data))
         default:
             return state;
     }
 }
-
 
 const structureData = (json) => {
   let rawData = json["Time Series (Daily)"]

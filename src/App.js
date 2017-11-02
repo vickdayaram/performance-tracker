@@ -28,7 +28,6 @@ class App extends Component {
         </Grid>
         </Segment>
         </div>
-        < HighCharts />
       </div>
     );
   }

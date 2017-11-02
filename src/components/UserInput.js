@@ -50,7 +50,7 @@ class UserInput extends Component {
     const { isLoading, value, results } = this.state
 
     return (
-          <div>
+          <div className="search">
           <Search
             loading={isLoading}
             onResultSelect={this.handleResultSelect}

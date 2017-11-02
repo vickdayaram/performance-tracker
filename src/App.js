@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import ChartContainer from './containers/ChartContainer'
 import DashboardContainer from './containers/DashboardContainer'
 import Nav from './components/Nav'
-import { Grid } from 'semantic-ui-react'
+import { Grid, Header, Segment } from 'semantic-ui-react'
 
 class App extends Component {
-
 
   render() {
     return (
       <div>
         < Nav />
         <div className="mainBody">
+        <Header as="h1" attached="top" inverted={true} textAlign="center">
+          Perfomance Tracker
+        </Header>
+        < Segment attached>
         <Grid>
           <Grid.Row>
             <Grid.Column width={6}>
@@ -22,6 +25,7 @@ class App extends Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        </Segment>
         </div>
       </div>
     );

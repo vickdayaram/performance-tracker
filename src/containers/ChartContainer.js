@@ -8,7 +8,7 @@ class ChartContainer extends Component {
   render() {
     return (
       <div>
-        <Header as="h2" attached="top" inverted={true} textAlign="center">
+        <Header as="h3" attached="top" inverted={true} textAlign="center">
           < ChartHeader />
         </Header>
         < Segment attached>

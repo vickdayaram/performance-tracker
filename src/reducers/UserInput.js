@@ -1,4 +1,3 @@
-
 export default function (state = { selected: "BLK" }, action) {
     switch (action.type) {
         case 'STOCK_SELECTED':

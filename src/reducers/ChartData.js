@@ -1,4 +1,4 @@
-export default function (state = {chartData: []}, action){
+export default function (state = [], action){
     switch (action.type) {
         case 'SUCCESS':
             return Object.assign({}, state, {
@@ -9,7 +9,8 @@ export default function (state = {chartData: []}, action){
     }
 }
 
-function structureData(json){
+
+const structureData = (json) => {
   let rawData = json["Time Series (Daily)"]
   let labels = Object.keys(rawData)
   let data = Object.values(rawData).map((value) => parseFloat(value["1. open"]))

@@ -6,15 +6,10 @@ import { bindActionCreators } from 'redux';
 
 class StockSymbol extends Component {
 
-  handleClick = () => {
-    let symbol = this.props.stock.selected.trim()
-    this.props.deleteFromWatchList(symbol)
-  }
-
   render() {
     return (
       <div>
-          { this.props.stock.selected } <Button circular icon="delete" onClick={this.handleClick} / >
+          { this.props.stock.selected } 
       </div>
     )
   }
@@ -26,9 +21,4 @@ function mapStateToProps(state){
   }
 }
 
-function matchDispatchToProps(dispatch){
-    return bindActionCreators({deleteFromWatchList: deleteFromWatchList},
-                          dispatch);
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(StockSymbol)
+export default connect(mapStateToProps)(StockSymbol)

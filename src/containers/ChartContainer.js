@@ -14,6 +14,4 @@ class ChartContainer extends Component {
   }
 }
 
-
-
 export default ChartContainer;

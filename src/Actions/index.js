@@ -1,6 +1,4 @@
 
-
-
 export const selectStock = (selection) => {
     return {
         type: 'STOCK_SELECTED',
@@ -46,7 +44,6 @@ export const chartData = (data) => {
 export const getChartData = (symbol) => {
    let url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=NKIEQH9ZHQ1ZFJVL
      `
-     console.log("in getchartdata")
   return function(dispatch){
     dispatch(getRequestInProcess(true))
      return fetch(url)

@@ -67,7 +67,8 @@ class UserInput extends Component {
 
 function mapStateToProps(state){
   return {
-    selected: state.selected
+    selected: state.selected,
+    watchlist: state.watchlist
   }
 }
 

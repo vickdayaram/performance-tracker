@@ -1,4 +1,3 @@
-
 import { combineReducers } from 'redux';
 import UserInput from './UserInput';
 import WatchList from './WatchList';

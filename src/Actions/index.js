@@ -58,3 +58,9 @@ export const checkForRestart = () => {
     type: "CHECK_FOR_RESTART"
   }
 }
+
+export const resetSelectForRestart = () => {
+  return {
+    type: "RESET_SELECT_FOR_RESTART"
+  }
+}

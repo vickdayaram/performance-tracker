@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { Search, Grid, Header } from 'semantic-ui-react'
 import { StockData } from '../StockData'
-import { selectStock } from '../Actions/index'
-import { addToWatchList } from '../Actions/index'
-import { getChartData } from '../Actions/index'
-import { checkForRestart } from '../Actions/index'
+import { selectStock, addToWatchList, getChartData, checkForRestart, resetSelectForRestart } from '../Actions/index'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash'
@@ -15,6 +12,7 @@ class UserInput extends Component {
     this.resetComponent()
     this.props.getChartData("BLK")
     this.props.checkForRestart()
+    this.props.resetSelectForRestart()
   }
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
@@ -82,7 +80,9 @@ function matchDispatchToProps(dispatch){
     return bindActionCreators({selectStock: selectStock,
                           addToWatchList: addToWatchList,
                           getChartData: getChartData,
-                          checkForRestart: checkForRestart},
+                          checkForRestart: checkForRestart,
+                          resetSelectForRestart: resetSelectForRestart
+                          },
                           dispatch);
 }
 

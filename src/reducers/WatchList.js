@@ -5,10 +5,9 @@ export default function (state = {watchlist: [{symbol: "BLK"}]}, action) {
             return [...state, {symbol: action.payload}]
             break;
         case 'DELETE_SELECTED':
-            let update = state.filter((stock) => {
-              return stock.symbol !== action.payload
-            })
-            return update;
+            let update = state.filter((stock) => stock.symbol !== action.payload)
+            debugger
+            return state.filter((stock) => stock.symbol !== action.payload )
             break;
     }
     return state;

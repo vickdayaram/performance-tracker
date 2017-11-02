@@ -20,7 +20,7 @@ class Chart extends Component {
   render() {
     return (
       <div>
-          < Line data={chartData} />
+          < Line data={this.props.chartData.chartData} />
       </div>
     );
   }
@@ -29,7 +29,7 @@ class Chart extends Component {
 
 function mapStateToProps(state) {
     return {
-        selected: state.selected
+        chartData: state.chartData
     };
 }
 

@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 class StockSymbol extends Component {
 
   handleClick = () => {
-    let symbol = this.props.stock.selected
+    let symbol = this.props.stock.selected.trim()
     this.props.deleteFromWatchList(symbol)
   }
 

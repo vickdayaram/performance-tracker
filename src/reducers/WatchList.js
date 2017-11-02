@@ -1,4 +1,4 @@
-export default function (state = [{symbol: "BLK", name: "BlackRock"}], action) {
+export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], action) {
     switch (action.type) {
         case 'ADD_SELECTED':
             if(existsInState(state, action.payload)){

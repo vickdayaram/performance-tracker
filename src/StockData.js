@@ -1,7 +1,8 @@
 export const StockData = [
   {
     "title": "GOOGL",
-    "description": "Google"
+    "description": "Google",
+    "Sector": "Technology"
   },
   {
     "title": "SRCE",

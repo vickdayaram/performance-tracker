@@ -9,7 +9,7 @@ class WatchListContainer extends Component {
   render(){
      return (
       <div className="watchListContainer">
-         <Header as="h3" attached="top" inverted={true} textAlign="center"> WatchList </Header>
+         <Header as="h3" attached="top" textAlign="center"> WatchList </Header>
           {this.props.watchlist.length ?
           <Segment attached>
             <Table celled inverted selectable>

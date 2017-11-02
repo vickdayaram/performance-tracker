@@ -58,7 +58,7 @@ class UserInput extends Component {
             results={results}
             value={value}
             fluid={true}
-            size="massive"
+            size="huge"
             placeholder="Search by Company"
             {...this.props}
           />

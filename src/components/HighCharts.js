@@ -10,55 +10,48 @@ import { HighchartsChart,
           Legend, stockChart,
           LineSeries, Labels } from 'react-jsx-highcharts';
 
-
-
-export const options = { format: '%s%v', symbol: '$' }
-
-const chartOptions = {
-  yAxis: {
-        labels: {
-            formatter: function(){
-              return this.y + "$"
-            }
-        }
-    },
-  xAxis: {
-          type: 'datetime'
-        },
-};
+const options = { format: '%s%v', symbol: '$' }
 
 class ChartComponent extends Component {
 
-  format(){
-    return `$${this.y} on ${this.x}`
+  formatCrossHairs(){
+    return `${formatCurrency(this.y, options)} on ${this.x}`
   }
 
+  formatYAxis(){
+    return {formatter: function() {
+            return formatCurrency(this.value, options)
+        }
+      }
+  }
 
   render(){
 
     return (
-        <div className="app">
+        <div>
           <HighchartsChart >
-            <Chart height={600}/>
-            <Tooltip crosshairs={true} formatter={this.format}/>
+
             <Title align="right"> Historical Performance </Title>
-
-            <Subtitle align="right">Source: alphavantage.com </Subtitle>
-
+            <Subtitle align="right"> Source: alphavantage.com </Subtitle>
             <Legend layout="horizontal" align="top" verticalAlign="top" />
 
-            <XAxis categories={this.props.chartData.labels} >
+            <Chart height={600}/>
+            <Tooltip crosshairs={true} formatter={this.formatCrossHairs}/>
+
+
+            <XAxis categories={this.props.chartData.labels}>
               <XAxis.Title>Time</XAxis.Title>
             </XAxis>
 
-            <YAxis id="number" >
+            <YAxis id="number"
+                  labels={this.formatYAxis()}>
               <YAxis.Title>Stock Price</YAxis.Title>
               <LineSeries id="Stock Price" name={this.props.stock.selected} data={this.props.chartData.data} />
             </YAxis>
+
           </HighchartsChart>
         </div>
       )
-
   }
 }
 

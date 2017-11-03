@@ -6,6 +6,7 @@
     "chart.js": "^2.7.1",
     "format-currency": "^1.0.0",
     "highcharts": "^5.0.14",
+    "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-chartjs-2": "^2.6.4",

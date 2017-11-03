@@ -1,15 +1,13 @@
+import _ from 'lodash'
+
 export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], action) {
     switch (action.type) {
         case 'ADD_SELECTED':
-            if(existsInState(state, action.payload)){
-              return [...state]
-              break;
-            } else {
               let addUpdate = [...state, {symbol: action.payload.symbol, name: action.payload.name}]
-              localStorage.setItem('watchlist', JSON.stringify(addUpdate))
-              return addUpdate
+              let unique = _.uniqWith(addUpdate, _.isEqual)
+              localStorage.setItem('watchlist', JSON.stringify(unique))
+              return unique
               break;
-            }
         case 'DELETE_SELECTED':
               let deleteUpdate = state.filter((stock) => stock.symbol !== action.payload.symbol )
               localStorage.setItem('watchlist', JSON.stringify(deleteUpdate))
@@ -27,10 +25,4 @@ export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], acti
             break;
     }
     return state;
-}
-
-const existsInState = (state, stock) => {
-  let exists = state.filter((watchItem) =>  watchItem.symbol === stock.symbol)
-  if(exists.length > 0)return true
-  return false
 }

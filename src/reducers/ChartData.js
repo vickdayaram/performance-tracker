@@ -2,7 +2,7 @@
 export default function (state = {data: [], labels: [], errors: false, inProcess: false}, action){
     switch (action.type) {
         case 'SUCCESS':
-            return Object.assign({}, state, structureDataHighCharts(action.data))
+            return Object.assign({}, state, structureData(action.data))
             break;
         case 'IN_PROCESS':
             return Object.assign({}, state, { inProcess:true })
@@ -15,24 +15,7 @@ export default function (state = {data: [], labels: [], errors: false, inProcess
     }
 }
 
-
 const structureData = (json) => {
-  let rawData = json["Time Series (Daily)"]
-  let labels = Object.keys(rawData)
-  let data = Object.values(rawData).map((value) => parseFloat(value["1. open"]))
-  let chartData = {
-              labels: labels.reverse(),
-              datasets: [{
-              backgroundColor: 'rgba(65,105,225, 0.5)',
-              borderColor: 'rgb(0,0,139)',
-              data: data.reverse(),
-          }]
-      }
-  return chartData
-}
-
-
-const structureDataHighCharts = (json) => {
   let rawData = json["Time Series (Daily)"]
   let labels = Object.keys(rawData)
   let data = Object.values(rawData).map((value) => parseFloat(value["1. open"]))

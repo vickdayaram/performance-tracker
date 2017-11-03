@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Search, Grid, Header } from 'semantic-ui-react'
 import { StockData } from '../StockData'
-import { selectStock, addToWatchList, getChartData, checkForRestart, resetSelectForRestart } from '../Actions/index'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash'
+import { selectStock, addToWatchList,
+         getChartData, checkForRestart,
+         resetSelectForRestart } from '../actions/index'
 
 class UserInput extends Component {
 

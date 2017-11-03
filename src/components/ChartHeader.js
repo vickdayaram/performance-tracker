@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'semantic-ui-react'
-import { deleteFromWatchList } from '../Actions/index'
+import { deleteFromWatchList } from '../actions/index'
 import { bindActionCreators } from 'redux';
 
 class ChartHeader extends Component {

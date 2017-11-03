@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { Feed, Table } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { selectStock } from '../Actions/index'
-import { deleteFromWatchList } from '../Actions/index'
-import { getChartData } from '../Actions/index'
 import { bindActionCreators } from 'redux';
 import { Button } from 'semantic-ui-react'
+import { selectStock, deleteFromWatchList,
+         getChartData } from '../actions/index'
 
 class WatchListItem extends Component {
 

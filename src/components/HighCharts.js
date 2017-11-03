@@ -7,8 +7,7 @@ import { HighchartsChart,
           withHighcharts,
           XAxis, YAxis,
           Title, Subtitle,
-          Legend, stockChart,
-          LineSeries, Labels } from 'react-jsx-highcharts';
+          Legend, Series, Labels } from 'react-jsx-highstock';
 
 const options = { format: '%s%v', symbol: '$' }
 
@@ -19,25 +18,35 @@ class ChartComponent extends Component {
   }
 
   formatYAxis(){
-    return {formatter: function() {
-            return formatCurrency(this.value, options)
-        }
-      }
+    return { formatter: function() {
+                  return formatCurrency(this.value, options)
+            }
+    }
   }
+
+  setGradient(){
+    return (
+      { linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+              stops: [
+                  [0, '#606060'],
+                  [1, '#C0C0C0']
+              ]
+          }
+      )
+   }
 
   render(){
 
     return (
         <div>
-          <HighchartsChart >
+          <HighchartsChart>
 
             <Title align="right"> Historical Performance </Title>
             <Subtitle align="right"> Source: alphavantage.com </Subtitle>
             <Legend layout="horizontal" align="top" verticalAlign="top" />
 
-            <Chart height={600}/>
-            <Tooltip crosshairs={true} formatter={this.formatCrossHairs}/>
-
+            <Chart plotBackgroundColor={this.setGradient()} height={600} />
+            <Tooltip crosshairs={true} formatter={this.formatCrossHairs} valueDecimals={2}/>
 
             <XAxis categories={this.props.chartData.labels}>
               <XAxis.Title>Time</XAxis.Title>
@@ -45,8 +54,8 @@ class ChartComponent extends Component {
 
             <YAxis id="number"
                   labels={this.formatYAxis()}>
-              <YAxis.Title>Stock Price</YAxis.Title>
-              <LineSeries id="Stock Price" name={this.props.stock.selected} data={this.props.chartData.data} />
+              <YAxis.Title>Stock Price in USD</YAxis.Title>
+              <Series id="Stock Price" color="#003366" name={this.props.stock.selected} data={this.props.chartData.data} />
             </YAxis>
 
           </HighchartsChart>

@@ -22,7 +22,7 @@ class WatchListContainer extends Component {
               this.props.watchlist.map((stock) => < WatchListItem stock={stock} />)
               :
               <Table.Row>
-                <Table.Cell textAlign="center" vertialAlign="middle" colSpan="2">
+                <Table.Cell textAlign="center" verticalAlign="middle" colSpan="2">
                   Your WatchList is Empty
                 </Table.Cell>
               </Table.Row>

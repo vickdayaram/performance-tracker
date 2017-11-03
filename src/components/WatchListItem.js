@@ -36,8 +36,8 @@ class WatchListItem extends Component {
 
   render(){
      return (
-         <Table.Row onClick={this.handleInfo}>
-          <Table.Cell textAlign="center"> {this.props.stock.symbol} </Table.Cell>
+         <Table.Row>
+          <Table.Cell textAlign="center" onClick={this.handleInfo}> {this.props.stock.symbol} </Table.Cell>
           <Table.Cell textAlign="center">
             <Button onClick={this.handleSelect} positive circular icon='line chart'/>
             <Button onClick={this.handleDelete} negative circular icon='delete'/>

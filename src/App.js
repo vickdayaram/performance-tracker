@@ -12,16 +12,13 @@ class App extends Component {
       <div>
         < Nav />
         <div className="mainBody">
-        <Header as="h1" attached="top" inverted={true} textAlign="center">
-          Perfomance Tracker
-        </Header>
-        < Segment attached>
+        < Segment >
         <Grid>
           <Grid.Row>
-            <Grid.Column width={6}>
+            <Grid.Column width={4}>
               < DashboardContainer />
             </Grid.Column>
-            <Grid.Column width={10}>
+            <Grid.Column width={12}>
               < ChartContainer />
             </Grid.Column>
           </Grid.Row>

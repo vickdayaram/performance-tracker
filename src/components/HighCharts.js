@@ -27,7 +27,7 @@ class ChartComponent extends Component {
 
     return (
         <div className="app">
-          <HighchartsChart options={chartOptions}>
+          <HighchartsChart >
 
             <Title> Historical Performance </Title>
 
@@ -35,12 +35,12 @@ class ChartComponent extends Component {
 
             <Legend layout="vertical" align="right" verticalAlign="middle" />
 
-            <XAxis categories={this.props.chartData.chartData.labels} >
+            <XAxis categories={this.props.chartData.labels} >
               <XAxis.Title>Time</XAxis.Title>
             </XAxis>
 
             <YAxis id="number" >
-              <LineSeries id="Stock Price" name="Stock Price" data={this.props.chartData.chartData.data} />
+              <LineSeries id="Stock Price" name={this.props.stock.selected} data={this.props.chartData.data} />
             </YAxis>
           </HighchartsChart>
         </div>
@@ -52,7 +52,8 @@ class ChartComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        chartData: state.chartData
+        chartData: state.chartData,
+        stock: state.selected
     };
 }
 

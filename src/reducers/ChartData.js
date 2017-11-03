@@ -1,8 +1,8 @@
 
-export default function (state = {}, action){
+export default function (state = {data: [], labels: []}, action){
     switch (action.type) {
         case 'SUCCESS':
-            return Object.assign({}, state, structureData(action.data))
+            return Object.assign({}, state, structureDataHighCharts(action.data))
         default:
             return state;
     }

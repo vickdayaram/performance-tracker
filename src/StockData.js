@@ -2,7 +2,8 @@ export const StockData = [
   {
     "title": "GOOGL",
     "description": "Google",
-    "Sector": "Technology"
+    "Sector": "Technology",
+    "Summary Quote": "http://www.nasdaq.com/title/googl"
   },
   {
     "title": "SRCE",

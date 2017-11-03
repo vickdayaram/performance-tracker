@@ -4,14 +4,33 @@ body {
   font-family: 'Alegreya', serif;
 }
 
+/*** Main Component Style ***/
+
 .mainBody {
   margin-left: 30px;
   margin-right: 30px;
   margin-top: 20px;
 }
 
+.ui.grid>.row {
+  background-color: white;
+}
+
+/*** Headers Font Style ***/
+
 h3 {
   font-family: 'Alegreya', serif!important;
+}
+
+h1 {
+  font-family: 'Alegreya', serif!important;
+  font-size: 40px;
+}
+
+/*** Search and Search Results Style ***/
+
+.search {
+  text-align: center;
 }
 
 .results {
@@ -19,22 +38,34 @@ h3 {
  overflow-y: auto!important;
 }
 
-.search {
-  text-align: center;
-}
-
-.watchListContainer {
-  margin-top: 35px;
-}
+/*** ChartContainer Styles ***/
 
 .ui.top.attached.header {
   background-color: #003366;
+}
+
+/*** WatchListContainer Styles ***/
+
+.watchListContainer {
+  margin-top: 35px;
 }
 
 .watchListContainer .ui.top.attached.header {
   background-color: #202020;
 }
 
+.watchListContainer .ui.attached.segment {
+  background-color: white;
+}
+
+.ui.celled.table tr td, .ui.celled.table tr th{
+  font-size: 18px;
+}
+
+
+/* Main Header Styles */
+
 .ui.inverted.segment, .ui.primary.inverted.segment {
   background-color: #202020;
+  text-align: center;
 }

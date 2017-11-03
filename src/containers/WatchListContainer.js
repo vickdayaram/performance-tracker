@@ -11,8 +11,7 @@ class WatchListContainer extends Component {
       <div className="watchListContainer">
          <Header as="h3" attached="top" inverted={true} textAlign="center"> WatchList </Header>
           {this.props.watchlist.length ?
-          <Segment attached>
-            <Table celled inverted selectable>
+            <Table celled inverted selectable attached>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell textAlign="center"> Stock Ticker </Table.HeaderCell>
@@ -23,7 +22,6 @@ class WatchListContainer extends Component {
               {this.props.watchlist.map((stock) => < WatchListItem stock={stock} />)}
             </Table.Body>
             </Table>
-          </Segment>
           : null }
       </div>
     )

@@ -30,9 +30,13 @@ class WatchListItem extends Component {
     this.props.deleteFromWatchList(payload)
   }
 
+  handleInfo = () => {
+    window.open(`http://www.nasdaq.com/symbol/${this.props.stock.symbol}`, '_blank')
+  }
+
   render(){
      return (
-         <Table.Row>
+         <Table.Row onClick={this.handleInfo}>
           <Table.Cell textAlign="center"> {this.props.stock.symbol} </Table.Cell>
           <Table.Cell textAlign="center">
             <Button onClick={this.handleSelect} positive circular icon='line chart'/>

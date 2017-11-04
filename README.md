@@ -2,17 +2,18 @@
 
 ## Description
 
-Performance-Tracker is a single page app that gives users the ability to view
-charted stock performance data, and save viewed stocks in a watchlist. Users
-can edit the watchlist as their interest change, and can select stocks to be charted
-directly from the watchlist. The User's watchlist will persist in their browser's
-localStorage for future viewing. User's are also able to click on the security
-ticker on the watchlist to view additional information on the security's Nasdaq page.
+Performance-Tracker is a single page app that users can use to view
+charted stock performance data. Searched stocks are saved in a watchlist which
+users can edit as their interest change. The User's watchlist will persist
+in their browser's localStorage for future viewing. User's are also able to
+click on the security ticker on the watchlist to view additional
+information on the security's Nasdaq page.
 
 ## Getting Started
 
-First, fork and clone this repo. The run npm install to install dependencies,
-and lastly run npm start to launch the app in your local server.
+* Fork and clone this repo
+* npm install
+* npm start
 
 ## Built With
 
@@ -38,4 +39,4 @@ Pradeep Dayaram
 ## Acknowledgments
 
 Thank you Flatiron School for imparting the knowledge to be able to build this project!
-Special thanks to Chris Guthrie for providing the inspiration. 
+Special thanks to Chris Guthrie for providing the inspiration.

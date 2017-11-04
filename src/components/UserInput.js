@@ -43,12 +43,12 @@ class UserInput extends Component {
      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
      const isMatch = (result) => re.test(result.description)
 
-     this.setState({
-       isLoading: false,
-       results: _.filter(StockData, isMatch),
-     })
-   }, 500)
- }
+       this.setState({
+         isLoading: false,
+         results: _.filter(StockData, isMatch),
+       })
+     }, 500)
+   }
 
   render() {
     const { isLoading, value, results } = this.state

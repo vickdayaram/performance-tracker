@@ -12,10 +12,7 @@ class WatchListItem extends Component {
   handleSelect = () => {
     let symbol = this.props.stock.symbol
     let name = this.props.stock.name
-    let payload = {
-      symbol: symbol,
-      name: name
-    }
+    let payload = { symbol: symbol, name: name }
     this.props.selectStock(payload)
     this.props.getChartData(symbol)
   }
@@ -23,10 +20,7 @@ class WatchListItem extends Component {
   handleDelete = () => {
     let symbol = this.props.stock.symbol
     let name = this.props.stock.name
-    let payload = {
-      symbol: symbol,
-      name: name
-    }
+    let payload = { symbol: symbol, name: name }
     this.props.deleteFromWatchList(payload)
     this.props.showDeleteMessage(symbol)
   }

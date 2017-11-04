@@ -1,11 +1,5 @@
 export const StockData = [
   {
-    "title": "GOOGL",
-    "description": "Google",
-    "Sector": "Technology",
-    "Summary Quote": "http://www.nasdaq.com/title/googl"
-  },
-  {
     "title": "SRCE",
     "description": "1st Source Corporation",
     "LastSale": 46.42,
@@ -812,6 +806,12 @@ export const StockData = [
     "Industry": "Biotechnology: Biological Products (No Diagnostic Substances)",
     "Summary Quote": "http://www.nasdaq.com/title/gnmx",
     "": ""
+  },
+  {
+    "title": "GOOGL",
+    "description": "Google",
+    "Sector": "Technology",
+    "Summary Quote": "http://www.nasdaq.com/title/googl"
   },
   {
     "title": "",

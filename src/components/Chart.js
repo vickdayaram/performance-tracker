@@ -27,11 +27,7 @@ class ChartComponent extends Component {
   setGradient(){
     return (
       { linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-              stops: [
-                  [0, '#606060'],
-                  [1, '#C0C0C0']
-              ]
-          }
+        stops: [[0, '#606060'], [1, '#C0C0C0']] }
       )
    }
 

@@ -57,7 +57,6 @@ class ChartComponent extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
     return {
         chartData: state.chartData,

@@ -3,7 +3,6 @@ import { Table, Header, Segment } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import WatchListItem from '../components/WatchListItem'
 
-
 class WatchListContainer extends Component {
 
   render(){

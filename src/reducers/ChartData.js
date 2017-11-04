@@ -1,4 +1,3 @@
-
 export default function (state = {data: [], labels: [], errors: false, inProcess: false}, action){
     switch (action.type) {
         case 'SUCCESS':

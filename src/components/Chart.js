@@ -18,10 +18,7 @@ class ChartComponent extends Component {
   }
 
   formatYAxis(){
-    return { formatter: function() {
-                  return formatCurrency(this.value, options)
-            }
-    }
+    return {formatter: function(){return formatCurrency(this.value, options)}}
   }
 
   setGradient(){
@@ -38,7 +35,7 @@ class ChartComponent extends Component {
           <HighchartsChart>
 
             <Title align="right"> Historical Performance </Title>
-            <Subtitle align="right"> Source: alphavantage.com </Subtitle>
+            <Subtitle align="right"> Source: alphavantage API </Subtitle>
             <Legend layout="horizontal" align="top" verticalAlign="top" />
 
             <Chart plotBackgroundColor={this.setGradient()} height={600} />

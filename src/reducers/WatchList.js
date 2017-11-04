@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], action) {
     switch (action.type) {
         case 'ADD_SELECTED':

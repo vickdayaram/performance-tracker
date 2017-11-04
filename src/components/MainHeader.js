@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import { Segment, Menu, Message } from 'semantic-ui-react'
+import { Menu, Message } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import UserInput from './UserInput'
 import { resetMessages } from '../actions'
-import _ from 'lodash'
 
 class MainHeader extends Component {
 

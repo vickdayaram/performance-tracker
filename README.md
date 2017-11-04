@@ -5,7 +5,7 @@
 Performance-Tracker is a single page app used to view charted stock and ETF performance data.
 Searched securities are saved in a watchlist which users can edit. The user's watchlist will
 persist in their browser's localstorage for future viewing even after the app is shut down.
-User's are also able to click on the security ticker on the watchlist to view additional
+User's are also able to click on the security's ticker on the watchlist to view additional
 information on the security's Nasdaq page.
 
 ## Getting Started

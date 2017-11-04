@@ -8,7 +8,6 @@ class DashboardContainer extends Component {
   render() {
     return (
       <div>
-        < UserInput />
         < WatchListContainer />
       </div>
     );

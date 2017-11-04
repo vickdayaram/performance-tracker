@@ -4,9 +4,8 @@ export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], acti
     switch (action.type) {
         case 'ADD_SELECTED':
               let addUpdate = [...state, {symbol: action.payload.symbol, name: action.payload.name}]
-              let unique = _.uniqWith(addUpdate, _.isEqual)
-              localStorage.setItem('watchlist', JSON.stringify(unique))
-              return unique
+              localStorage.setItem('watchlist', JSON.stringify(addUpdate))
+              return addUpdate
               break;
         case 'DELETE_SELECTED':
               let deleteUpdate = state.filter((stock) => stock.symbol !== action.payload.symbol )

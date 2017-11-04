@@ -1,8 +1,8 @@
 
 export const selectStock = (selection) => {
     return {
-        type: 'STOCK_SELECTED',
-        payload: selection
+      type: 'STOCK_SELECTED',
+      payload: selection
     }
 };
 
@@ -62,5 +62,25 @@ export const checkForRestart = () => {
 export const resetSelectForRestart = () => {
   return {
     type: "RESET_SELECT_FOR_RESTART"
+  }
+}
+
+export const showDeleteMessage = (symbol) => {
+  return {
+    type: "SHOW_DELETE_MESSAGE",
+    payload: symbol
+  }
+}
+
+export const showAddMessage = (symbol) => {
+  return {
+    type: "SHOW_ADD_MESSAGE",
+    payload: symbol
+  }
+}
+
+export const resetMessages = () => {
+  return {
+    type: "RESET_MESSAGES"
   }
 }

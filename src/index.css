@@ -38,6 +38,10 @@ h1 {
  overflow-y: auto!important;
 }
 
+.ui.menu > div:nth-child(1) {
+  padding-left: 70px;
+}
+
 /*** ChartContainer Styles ***/
 
 .ui.top.attached.header {
@@ -47,7 +51,7 @@ h1 {
 /*** WatchListContainer Styles ***/
 
 .watchListContainer {
-  margin-top: 35px;
+  margin-top: 0px;
 }
 
 .watchListContainer .ui.top.attached.header {
@@ -65,7 +69,11 @@ h1 {
 
 /* Main Header Styles */
 
-.ui.inverted.segment, .ui.primary.inverted.segment {
-  background-color: #202020;
-  text-align: center;
+.ui.menu > div:nth-child(2) {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.ui.menu > div:nth-child(3) {
+  padding-right: 50px;
 }

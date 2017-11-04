@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import _ from 'lodash'
 import { selectStock, addToWatchList,
          getChartData, checkForRestart,
-         resetSelectForRestart } from '../actions/index'
+         resetSelectForRestart,
+         showAddMessage } from '../actions/index'
 
 class UserInput extends Component {
 
@@ -22,20 +23,21 @@ class UserInput extends Component {
   handleResultSelect = (e, { result }) => {
     let symbol = result.title
     let name = result.description
-    let payload = {
-      symbol: symbol,
-      name: name
-    }
+    let payload = { symbol: symbol, name: name }
     this.props.selectStock(payload)
-    this.props.addToWatchList(payload)
     this.props.getChartData(symbol)
+    let existsIndx = _.findIndex(this.props.watchlist, (stock) => stock.symbol === symbol)
+    if(existsIndx === -1){
+      this.props.addToWatchList(payload)
+      this.props.showAddMessage(symbol)
+    }
     this.setState({ value: '' })
   }
 
   handleSearchChange = (e, { value }) => {
    this.setState({ isLoading: true, value })
-
    setTimeout(() => {
+
      if (this.state.value.length < 1) return this.resetComponent()
 
      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
@@ -81,7 +83,8 @@ const matchDispatchToProps = (dispatch) => {
                           addToWatchList: addToWatchList,
                           getChartData: getChartData,
                           checkForRestart: checkForRestart,
-                          resetSelectForRestart: resetSelectForRestart
+                          resetSelectForRestart: resetSelectForRestart,
+                          showAddMessage: showAddMessage
                           },
                           dispatch);
 }

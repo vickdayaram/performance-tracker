@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { Button } from 'semantic-ui-react'
 import { selectStock, deleteFromWatchList,
-         getChartData } from '../actions/index'
+         getChartData,
+         showDeleteMessage } from '../actions/index'
 
 class WatchListItem extends Component {
 
@@ -27,6 +28,7 @@ class WatchListItem extends Component {
       name: name
     }
     this.props.deleteFromWatchList(payload)
+    this.props.showDeleteMessage(symbol)
   }
 
   handleInfo = () => {
@@ -55,7 +57,8 @@ const mapStateToProps = (state) => {
 const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({selectStock: selectStock,
                               getChartData: getChartData,
-                              deleteFromWatchList: deleteFromWatchList},
+                              deleteFromWatchList: deleteFromWatchList,
+                              showDeleteMessage: showDeleteMessage},
                           dispatch);
 }
 

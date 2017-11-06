@@ -43,25 +43,24 @@ h1 {
 }
 
 /*** ChartContainer Styles ***/
+div.twelve.wide.column {
+  height: 680px;
+}
 
 .ui.top.attached.header {
   background-color: #003366;
 }
 
 .ui.attached.segment {
-  height: 630px;
+  height: 625px;
 }
-
-div.twelve.wide.column {
-  height: 680px;
-}
-
 
 /*** Error Message diplay in ChartContainer ***/
 
 .ui.yellow.message {
   margin: 200px;
-  padding-left: 90px;
+  padding-left: 55px;
+  padding-right: 45px;
 }
 
 /*** WatchListContainer Styles ***/

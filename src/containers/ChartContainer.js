@@ -6,6 +6,19 @@ import { connect } from 'react-redux'
 
 class ChartContainer extends Component {
 
+  chartDataArrivedWithNoErrorsAndProcessComplete = () => {
+    return (
+      this.props.chartData.data.length && !this.props.chartData.inProcess
+      && !this.props.chartData.errors
+    )
+  }
+
+  errorsReceivedAndProccessComplete = () => {
+    return(
+      this.props.chartData.errors && !this.props.chartData.inProcess
+    )
+  }
+
   render() {
     return (
       <div>
@@ -15,14 +28,16 @@ class ChartContainer extends Component {
            null
           }
 
-          {this.props.chartData.errors ?
+          {this.errorsReceivedAndProccessComplete() ?
           <Message textAlign="center" color="yellow">
-            Oops! Something went wrong. Please try refreshing the page.
+            Oops! Something went wrong. Please try refreshing the page. If the problem
+            persists, we may not have this securities information available. Sorry about
+            that.
           </Message>
           :
           null
           }
-          {this.props.chartData.data.length && !this.props.chartData.inProcess ?
+          {this.chartDataArrivedWithNoErrorsAndProcessComplete() ?
           <div>
           <Header as="h3" inverted={true} attached="top" textAlign="center">
             < ChartHeader />

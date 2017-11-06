@@ -21,6 +21,12 @@ class ChartComponent extends Component {
     return {formatter: function(){return formatCurrency(this.value, options)}}
   }
 
+  enableMarkers(){
+    return(
+      {enabled: true}
+    )
+  }
+
   setGradient(){
     return (
       { linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
@@ -38,7 +44,7 @@ class ChartComponent extends Component {
             <Legend layout="horizontal" align="top" verticalAlign="top" />
 
             <Chart plotBackgroundColor={this.setGradient()} height={600} />
-            <Tooltip crosshairs={true} formatter={this.formatCrossHairs} valueDecimals={2}/>
+            <Tooltip crosshairs={[true, true]} formatter={this.formatCrossHairs} valueDecimals={2}/>
 
             <XAxis categories={this.props.chartData.labels}>
               <XAxis.Title>Time</XAxis.Title>
@@ -47,7 +53,12 @@ class ChartComponent extends Component {
             <YAxis id="number"
                   labels={this.formatYAxis()}>
               <YAxis.Title>Stock Price in USD</YAxis.Title>
-              <Series id="Stock Price" color="#003366" name={this.props.stock.symbol} data={this.props.chartData.data} />
+              <Series
+                    marker={this.enableMarkers()}
+                    id="Stock Price"
+                    color="#003366"
+                    name={this.props.stock.symbol}
+                    data={this.props.chartData.data} />
             </YAxis>
           </HighchartsChart>
         </div>

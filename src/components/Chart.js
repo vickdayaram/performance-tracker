@@ -33,7 +33,6 @@ class ChartComponent extends Component {
     return (
         <div>
           <HighchartsChart>
-
             <Title align="right"> Historical Performance </Title>
             <Subtitle align="right"> Source: alphavantage API </Subtitle>
             <Legend layout="horizontal" align="top" verticalAlign="top" />
@@ -48,9 +47,8 @@ class ChartComponent extends Component {
             <YAxis id="number"
                   labels={this.formatYAxis()}>
               <YAxis.Title>Stock Price in USD</YAxis.Title>
-              <Series id="Stock Price" color="#003366" name={this.props.stock.selected} data={this.props.chartData.data} />
+              <Series id="Stock Price" color="#003366" name={this.props.stock.symbol} data={this.props.chartData.data} />
             </YAxis>
-
           </HighchartsChart>
         </div>
       )

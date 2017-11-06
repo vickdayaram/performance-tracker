@@ -18,8 +18,8 @@ export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], acti
               } else {
                  return state
               }
-            return
             break;
+        default:
+            return state
     }
-    return state;
 }

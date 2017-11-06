@@ -6,16 +6,24 @@ import { connect } from 'react-redux';
 import _ from 'lodash'
 import { selectStock, addToWatchList,
          getChartData, checkForRestart,
-         resetSelectForRestart,
          showAddMessage } from '../actions/index'
 
 class UserInput extends Component {
 
   componentWillMount() {
     this.resetComponent()
-    this.props.getChartData("BLK")
     this.props.checkForRestart()
-    this.props.resetSelectForRestart()
+    this.getChartDataUponRestart()
+  }
+
+  getChartDataUponRestart = () => {
+    if(localStorage.getItem('selected')){
+      let stock = JSON.parse(localStorage.getItem('selected'))
+      this.props.getChartData(stock.symbol)
+      this.props.selectStock(stock)
+    } else {
+      this.props.getChartData("BLK")
+    }
   }
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
@@ -87,7 +95,6 @@ const matchDispatchToProps = (dispatch) => {
                           addToWatchList: addToWatchList,
                           getChartData: getChartData,
                           checkForRestart: checkForRestart,
-                          resetSelectForRestart: resetSelectForRestart,
                           showAddMessage: showAddMessage
                           },
                           dispatch);

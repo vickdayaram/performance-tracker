@@ -48,6 +48,10 @@ h1 {
   background-color: #003366;
 }
 
+.ui.attached.segment {
+  height: 630px;
+}
+
 /*** WatchListContainer Styles ***/
 
 .watchListContainer {

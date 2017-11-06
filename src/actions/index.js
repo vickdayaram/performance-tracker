@@ -8,12 +8,6 @@ export const selectStock = (selection) => {
     }
 };
 
-export const resetSelectForRestart = () => {
-  return {
-    type: "RESET_SELECT_FOR_RESTART"
-  }
-}
-
 /* WatchList Actions*/
 
 export const addToWatchList = (selection) => {

@@ -9,10 +9,6 @@ class ChartContainer extends Component {
   render() {
     return (
       <div>
-        <Header as="h3" inverted={true} attached="top" textAlign="center">
-          < ChartHeader />
-        </Header>
-        < Segment attached>
           {this.props.chartData.inProcess ?
           <Loader active size='massive'> Fetching Most Recent Data </Loader>
           :
@@ -26,12 +22,17 @@ class ChartContainer extends Component {
           :
           null
           }
-
           {this.props.chartData.data.length && !this.props.chartData.inProcess ?
+          <div>
+          <Header as="h3" inverted={true} attached="top" textAlign="center">
+            < ChartHeader />
+          </Header>
+          < Segment attached>
           < Chart />
+          </ Segment >
+          </div>
           :
           null }
-        </ Segment >
       </div>
     );
   }

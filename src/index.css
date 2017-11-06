@@ -52,6 +52,10 @@ h1 {
   height: 630px;
 }
 
+div.twelve.wide.column {
+  height: 680px;
+}
+
 
 /*** Error Message diplay in ChartContainer ***/
 

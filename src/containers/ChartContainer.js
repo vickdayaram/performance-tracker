@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ChartHeader from '../components/ChartHeader'
-import { Header, Segment, Loader } from 'semantic-ui-react'
+import { Header, Segment, Loader, Message } from 'semantic-ui-react'
 import Chart from '../components/Chart'
 import { connect } from 'react-redux'
 
@@ -14,10 +14,23 @@ class ChartContainer extends Component {
         </Header>
         < Segment attached>
           {this.props.chartData.inProcess ?
-          <Loader active size='large'> Fetching Most Recent Data </Loader>
+          <Loader active size='massive'> Fetching Most Recent Data </Loader>
           :
-          < Chart />
+           null
           }
+
+          {this.props.chartData.errors ?
+          <Message textAlign="center" color="yellow">
+            Oops! Something went wrong. Please try refreshing the page.
+          </Message>
+          :
+          null
+          }
+
+          {this.props.chartData.data.length && !this.props.chartData.inProcess ?
+          < Chart />
+          :
+          null }
         </ Segment >
       </div>
     );

@@ -52,6 +52,14 @@ h1 {
   height: 630px;
 }
 
+
+/*** Error Message diplay in ChartContainer ***/
+
+.ui.yellow.message {
+  margin: 200px;
+  padding-left: 90px;
+}
+
 /*** WatchListContainer Styles ***/
 
 .watchListContainer {

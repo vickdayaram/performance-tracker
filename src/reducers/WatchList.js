@@ -10,7 +10,7 @@ export default function (state = [{symbol: "BLK", name: "BlackRock, Inc"}], acti
               localStorage.setItem('watchlist', JSON.stringify(deleteUpdate))
               return deleteUpdate
               break;
-        case 'CHECK_FOR_RESTART':
+        case 'FETCH_WATCH_LIST':
               if(localStorage.getItem('watchlist')){
                  let previous = localStorage.getItem('watchlist')
                  let updated = JSON.parse(previous)

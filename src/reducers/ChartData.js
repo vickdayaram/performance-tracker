@@ -4,10 +4,10 @@ export default function (state = {data: [], labels: [], errors: false, inProcess
             return Object.assign({}, state, structureData(action.data))
             break;
         case 'IN_PROCESS':
-            return Object.assign({}, state, { inProcess:true })
+            return Object.assign({}, state, { inProcess:true, errors:false })
             break;
         case 'ERRORS_IN_GET':
-            return Object.assign({}, state, { errors:true })
+            return Object.assign({}, state, { errors:true, inProcess:false })
         default:
             return state
             break;

@@ -5,22 +5,22 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import _ from 'lodash'
 import { selectStock, addToWatchList,
-         getChartData, checkForRestart,
+         getChartData, fetchWatchListFromLocalStorage,
          showAddMessage } from '../actions/index'
 
 class UserInput extends Component {
 
   componentWillMount() {
     this.resetComponent()
-    this.props.checkForRestart()
-    this.getChartDataUponRestart()
+    this.checkLocalStorage()
   }
 
-  getChartDataUponRestart = () => {
+  checkLocalStorage = () => {
     if(localStorage.getItem('selected')){
       let stock = JSON.parse(localStorage.getItem('selected'))
       this.props.getChartData(stock.symbol)
       this.props.selectStock(stock)
+      this.props.fetchWatchListFromLocalStorage()
     } else {
       this.props.getChartData("BLK")
     }
@@ -94,7 +94,7 @@ const matchDispatchToProps = (dispatch) => {
     return bindActionCreators({selectStock: selectStock,
                           addToWatchList: addToWatchList,
                           getChartData: getChartData,
-                          checkForRestart: checkForRestart,
+                          fetchWatchListFromLocalStorage: fetchWatchListFromLocalStorage,
                           showAddMessage: showAddMessage
                           },
                           dispatch);

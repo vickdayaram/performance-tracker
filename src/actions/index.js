@@ -24,9 +24,9 @@ export const deleteFromWatchList = (selection) => {
     }
 }
 
-export const checkForRestart = () => {
+export const fetchWatchListFromLocalStorage = () => {
   return {
-    type: "CHECK_FOR_RESTART"
+    type: "FETCH_WATCH_LIST"
   }
 }
 
